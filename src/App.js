@@ -9,14 +9,14 @@ function App() {
         setBooks([...books, newBook]);
     };
 
-    const deleteBook = (id) => {
+    const deleteBookByID = (id) => {
         const newBooks = books.filter((book) => {
             return book.id !== id;
         });
         setBooks(newBooks);
     };
 
-    const editBook = (newTitle, id) => {
+    const editBookByID = (newTitle, id) => {
         const newBooks = books.map((book) => {
             if (book.id !== id) {
                 return book;
@@ -28,7 +28,7 @@ function App() {
     };
     return (
         <div className="app">
-            <ReadingList books={books} onDelete={deleteBook} onEdit={editBook} />
+            <ReadingList books={books} onDelete={deleteBookByID} onEdit={editBookByID} />
             <CreateBook onSubmit={handleCreateBook} />
         </div>
     );

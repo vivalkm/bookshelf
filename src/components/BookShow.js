@@ -14,21 +14,28 @@ export default function BookShow({ book, onDelete, onEdit }) {
 
     return (
         <div className="book-show">
+            <img src={`https://picsum.photos/seed/${book.id}/200/300`} alt="book logo" />
             <div>
-                <img
-                    src={`https://picsum.photos/seed/${book.id}/200/300`}
-                    alt="book logo"
-                />
-                <button onClick={toggleEdit}>E</button>
-                <button onClick={handleDelete}>D</button>
+                <h3>
+                    {isEdit ? (
+                        <BookEdit
+                            book={book}
+                            key={book.id}
+                            onEdit={onEdit}
+                            toggleEdit={toggleEdit}
+                        />
+                    ) : (
+                        book.title
+                    )}
+                </h3>
             </div>
-
-            <div>
-                {isEdit ? (
-                    <BookEdit book={book} key={book.id} onEdit={onEdit} toggleEdit={toggleEdit} />
-                ) : (
-                    book.title
-                )}
+            <div className="actions">
+                <button className="edit" onClick={toggleEdit}>
+                    Edit
+                </button>
+                <button className="delete" onClick={handleDelete}>
+                    Delete
+                </button>
             </div>
         </div>
     );
