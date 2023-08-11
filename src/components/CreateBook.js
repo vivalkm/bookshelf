@@ -12,11 +12,11 @@ export default function CreateBook({ onSubmit }) {
         setBookName("");
     };
     return (
-        <div>
+        <div className="book-create">
             <form onSubmit={handleSubmit}>
-                <label>Create Book</label>
-                <input onChange={handleChange} value={bookName}></input>
-                <button>Submit</button>
+                <h3>Create Book</h3>
+                <input className="input" onChange={handleChange} value={bookName}></input>
+                <button className="button">Submit</button>
             </form>
         </div>
     );

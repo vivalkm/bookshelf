@@ -7,5 +7,5 @@ export default function ReadingList({ books, onDelete, onEdit }) {
             <BookShow book={book} key={book.id} onDelete={onDelete} onEdit={onEdit} />
         );
     });
-    return <div class="readinglist">{renderedBooks}</div>;
+    return <div class="book-list">{renderedBooks}</div>;
 }

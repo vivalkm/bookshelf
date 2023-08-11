@@ -27,14 +27,9 @@ function App() {
         setBooks(newBooks);
     };
     return (
-        <div>
-            <div>
-                <ReadingList books={books} onDelete={deleteBook} onEdit={editBook} />
-            </div>
-            <hr />
-            <div>
-                <CreateBook onSubmit={handleCreateBook} />
-            </div>
+        <div className="app">
+            <ReadingList books={books} onDelete={deleteBook} onEdit={editBook} />
+            <CreateBook onSubmit={handleCreateBook} />
         </div>
     );
 }

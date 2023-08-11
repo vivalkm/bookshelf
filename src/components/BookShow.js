@@ -13,11 +13,10 @@ export default function BookShow({ book, onDelete, onEdit }) {
     };
 
     return (
-        <div>
+        <div className="book-show">
             <div>
                 <img
-                    width="100px"
-                    src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NjQzMDF8MHwxfHNlYXJjaHwxfHxweXRob258ZW58MHx8fHwxNjkxNTM0NzQ2fDA&ixlib=rb-4.0.3&q=80&w=400"
+                    src={`https://picsum.photos/seed/${book.id}/200/300`}
                     alt="book logo"
                 />
                 <button onClick={toggleEdit}>E</button>
