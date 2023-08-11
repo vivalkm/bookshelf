@@ -14,7 +14,14 @@ export default function BookShow({ book, onDelete, onEdit }) {
 
     return (
         <div className="book-show">
-            <img src={`https://picsum.photos/seed/${book.id}/200/300`} alt="book logo" />
+            <img
+                src={
+                    book.imgUrl.length > 0
+                        ? book.imgUrl
+                        : `https://picsum.photos/seed/${book.id}/200/300`
+                }
+                alt="book logo"
+            />
             <div>
                 <h3>
                     {isEdit ? (

@@ -14,8 +14,11 @@ function App() {
         fetchBooks();
     }, []);
 
-    const handleCreateBook = async (bookName) => {
-        const newBook = await axios.post("http://localhost:3001/books", { title: bookName });
+    const handleCreateBook = async (bookName, bookImgUrl) => {
+        const newBook = await axios.post("http://localhost:3001/books", {
+            title: bookName,
+            imgUrl: bookImgUrl,
+        });
         setBooks([...books, newBook.data]);
     };
 
@@ -28,16 +31,17 @@ function App() {
         setBooks(newBooks);
     };
 
-    const editBookByID = async (newTitle, id) => {
+    const editBookByID = async (newTitle, newImgUrl, id) => {
         const editedBook = await axios.put(`http://localhost:3001/books/${id}`, {
             title: newTitle,
+            imgUrl: newImgUrl,
         });
         const newBooks = books.map((book) => {
             if (book.id !== id) {
                 return book;
             } else {
                 // to avoid overwriting other properties of the book that could be updated by other users concurrently
-                return {...book, ...editedBook.data};
+                return { ...book, ...editedBook.data };
             }
         });
         setBooks(newBooks);
