@@ -61,6 +61,7 @@ export default function CreateBook() {
                     />
                     <label htmlFor="startDate">Start reading date:</label>
                     <input
+                        className="input"
                         type="date"
                         id="startDate"
                         onChange={handleStartDateChange}
@@ -69,6 +70,7 @@ export default function CreateBook() {
 
                     <label htmlFor="endDate">Completion date:</label>
                     <input
+                        className="input"
                         type="date"
                         id="endDate"
                         onChange={handleEndDateChange}
@@ -82,19 +84,20 @@ export default function CreateBook() {
                         value={notes}
                         placeholder="Notes"
                     ></textarea>
-
-                    <button className="button">Submit</button>
+                    <div className="buttonGroup">
+                        <button className="button">Submit</button>
+                        <button className="button" type="button" onClick={toggleCreateBook}>
+                            Cancel
+                        </button>
+                    </div>
                 </form>
-                <button className="button" onClick={toggleCreateBook}>
-                    Cancel
-                </button>
             </div>
         );
     } else {
         return (
             <div className="book-create">
                 <button className="button" onClick={toggleCreateBook}>
-                    Creat Book
+                    Create Book
                 </button>
             </div>
         );

@@ -46,9 +46,15 @@ export default function BookEdit({ book, toggleEdit }) {
                 <label>End Date</label>
                 <input type="date" value={endDate} onChange={handleEndDateChange} />
                 <label>Notes</label>
-                <textarea type="textarea" rows={4} value={notes} onChange={handleNotesChange}></textarea>
+                <textarea
+                    type="textarea"
+                    rows={4}
+                    value={notes}
+                    onChange={handleNotesChange}
+                ></textarea>
                 <div>
                     <button className="button">Submit</button>
+                    <button className="button" type="button" onClick={toggleEdit}>Cancel</button>
                 </div>
             </form>
         </div>
