@@ -13,10 +13,13 @@ export function Provider({ children }) {
         setBooks(response.data);
     }, []);
 
-    const createBook = async (bookName, bookImgUrl) => {
+    const createBook = async (title, imgUrl, startDate, endDate, notes) => {
         const newBook = await axios.post(`${dbUrl}/books`, {
-            title: bookName,
-            imgUrl: bookImgUrl,
+            title,
+            imgUrl,
+            startDate,
+            endDate,
+            notes,
         });
         setBooks([...books, newBook.data]);
     };
@@ -29,10 +32,13 @@ export function Provider({ children }) {
         setBooks(newBooks);
     };
 
-    const editBookById = async (newTitle, newImgUrl, id) => {
+    const editBookById = async (title, imgUrl, startDate, endDate, notes, id) => {
         const editedBook = await axios.put(`${dbUrl}/books/${id}`, {
-            title: newTitle,
-            imgUrl: newImgUrl,
+            title,
+            imgUrl,
+            startDate,
+            endDate,
+            notes,
         });
         const newBooks = books.map((book) => {
             if (book.id !== id) {
