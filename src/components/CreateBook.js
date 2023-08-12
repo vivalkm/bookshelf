@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import { useState } from "react";
-import BooksContext from "../context/books";
+import React, { useState } from "react";
+import useBooksContext from "../hooks/useBooksContext";
 
 export default function CreateBook({ onSubmit }) {
     const [bookName, setBookName] = useState("");
     const [bookImgUrl, setBookImgUrl] = useState("");
-    const {createBook} = useContext(BooksContext);
+    const { createBook } = useBooksContext();
 
     const handleTitleChange = (event) => {
         setBookName(event.target.value);

@@ -1,16 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import BookEdit from "./BookEdit";
-import BooksContext from "../context/books";
+import useBooksContext from "../hooks/useBooksContext";
 
 export default function BookShow({ book }) {
-    const [isEdit, setIsEdit] = useState(false);
-    const { deleteBookByID } = useContext(BooksContext);
+    const [isOnEdit, setIsOnEdit] = useState(false);
+    const { deleteBookById } = useBooksContext();
     const handleDelete = () => {
-        deleteBookByID(book.id);
+        deleteBookById(book.id);
     };
 
     const toggleEdit = () => {
-        setIsEdit(!isEdit);
+        setIsOnEdit(!isOnEdit);
     };
 
     return (
@@ -25,7 +25,7 @@ export default function BookShow({ book }) {
             />
             <div>
                 <h3>
-                    {isEdit ? (
+                    {isOnEdit ? (
                         <BookEdit book={book} key={book.id} toggleEdit={toggleEdit} />
                     ) : (
                         book.title

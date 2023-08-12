@@ -1,11 +1,10 @@
-import React from "react";
-import { useState, useContext } from "react";
-import BooksContext from "../context/books";
+import React, { useState } from "react";
+import useBooksContext from "../hooks/useBooksContext";
 
 export default function BookEdit({ book, toggleEdit }) {
     const [bookName, setBookName] = useState(book.title);
     const [bookImgUrl, setBookImgUrl] = useState(book.imgUrl);
-    const { editBookById } = useContext(BooksContext);
+    const { editBookById } = useBooksContext();
     const handleTitleChange = (event) => {
         setBookName(event.target.value);
     };
