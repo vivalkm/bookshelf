@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import BooksContext from "../context/books";
 
 export default function CreateBook({ onSubmit }) {
     const [bookName, setBookName] = useState("");
     const [bookImgUrl, setBookImgUrl] = useState("");
+    const {createBook} = useContext(BooksContext);
 
     const handleTitleChange = (event) => {
         setBookName(event.target.value);
@@ -13,7 +15,7 @@ export default function CreateBook({ onSubmit }) {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit(bookName, bookImgUrl);
+        createBook(bookName, bookImgUrl);
         setBookName("");
         setBookImgUrl("");
     };

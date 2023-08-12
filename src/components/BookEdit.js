@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BooksContext from "../context/books";
 
-export default function BookEdit({ book, onEdit, toggleEdit }) {
+export default function BookEdit({ book, toggleEdit }) {
     const [bookName, setBookName] = useState(book.title);
     const [bookImgUrl, setBookImgUrl] = useState(book.imgUrl);
-
+    const { editBookById } = useContext(BooksContext);
     const handleTitleChange = (event) => {
         setBookName(event.target.value);
     };
@@ -15,7 +16,7 @@ export default function BookEdit({ book, onEdit, toggleEdit }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onEdit(bookName, bookImgUrl, book.id);
+        editBookById(bookName, bookImgUrl, book.id);
         toggleEdit();
     };
 
