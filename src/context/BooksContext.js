@@ -45,8 +45,13 @@ export function Provider({ children }) {
         setBooks(newBooks);
     };
 
-    const valueToShare = { books, fetchBooks, createBook, deleteBookById, editBookById };
-    return <BooksContext.Provider value={valueToShare}>{children}</BooksContext.Provider>;
+    return (
+        <BooksContext.Provider
+            value={{ books, fetchBooks, createBook, deleteBookById, editBookById }}
+        >
+            {children}
+        </BooksContext.Provider>
+    );
 }
 
 export default BooksContext;
