@@ -7,7 +7,7 @@ const BooksContext = createContext();
 export function Provider({ children }) {
     const [books, setBooks] = useState([]);
 
-    // useCallback gives back the same first parameter defined in first render, given the second parameter is empty array
+    // useCallback gives back the same first parameter object created in first render, given the second parameter is empty array
     const fetchBooks = useCallback(async () => {
         const response = await axios.get(`${dbUrl}/books`);
         setBooks(response.data);
