@@ -4,7 +4,7 @@ import useBooksContext from "../hooks/useBooksContext";
 import BookDetail from "./BookDetail";
 
 /**
- * A component to a given book
+ * A component to show a given book
  */
 function BookShow({ book }) {
     const [isOnEdit, setIsOnEdit] = useState(false);
