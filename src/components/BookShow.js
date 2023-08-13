@@ -3,7 +3,10 @@ import BookEdit from "./BookEdit";
 import useBooksContext from "../hooks/useBooksContext";
 import BookDetail from "./BookDetail";
 
-export default function BookShow({ book }) {
+/**
+ * A component to a given book
+ */
+function BookShow({ book }) {
     const [isOnEdit, setIsOnEdit] = useState(false);
     const [isOnDetail, setIsOnDetail] = useState(false);
     const { deleteBookById } = useBooksContext();
@@ -52,3 +55,5 @@ export default function BookShow({ book }) {
         </div>
     );
 }
+
+export default BookShow;

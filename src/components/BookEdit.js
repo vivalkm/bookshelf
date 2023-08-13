@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import useBooksContext from "../hooks/useBooksContext";
 
-export default function BookEdit({ book, toggleEdit }) {
+/**
+ * A component to edit a given book object
+ */
+function BookEdit({ book, toggleEdit }) {
     const [bookName, setBookName] = useState(book.title);
     const [bookImgUrl, setBookImgUrl] = useState(book.imgUrl);
     const [startDate, setStartDate] = useState(book.startDate);
@@ -60,3 +63,5 @@ export default function BookEdit({ book, toggleEdit }) {
         </div>
     );
 }
+
+export default  BookEdit;

@@ -4,7 +4,7 @@ import axios from "axios";
 
 const BooksContext = createContext();
 
-export function Provider({ children }) {
+function Provider({ children }) {
     const [books, setBooks] = useState([]);
 
     // useCallback gives back the same first parameter object created in first render, given the second parameter is empty array
@@ -13,7 +13,7 @@ export function Provider({ children }) {
         setBooks(response.data);
     }, []);
 
-    const createBook = async (title, imgUrl, startDate, endDate, notes) => {
+    const addBook = async (title, imgUrl, startDate, endDate, notes) => {
         const newBook = await axios.post(`${dbUrl}/books`, {
             title,
             imgUrl,
@@ -52,12 +52,11 @@ export function Provider({ children }) {
     };
 
     return (
-        <BooksContext.Provider
-            value={{ books, fetchBooks, createBook, deleteBookById, editBookById }}
-        >
+        <BooksContext.Provider value={{ books, fetchBooks, addBook, deleteBookById, editBookById }}>
             {children}
         </BooksContext.Provider>
     );
 }
 
 export default BooksContext;
+export { Provider };

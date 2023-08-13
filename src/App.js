@@ -1,10 +1,11 @@
-import CreateBook from "./components/CreateBook";
+import AddBook from "./components/AddBook";
 import ReadingList from "./components/ReadingList";
-import { useContext, useEffect } from "react";
-import BooksContext from "./context/BooksContext";
+import { useEffect } from "react";
+import useBooksContext from "./hooks/useBooksContext";
+
 
 function App() {
-    const { fetchBooks } = useContext(BooksContext);
+    const { fetchBooks } = useBooksContext();
 
     // fetch books from db on the first render only
     useEffect(() => {
@@ -13,8 +14,9 @@ function App() {
 
     return (
         <div className="app">
+            
             <ReadingList />
-            <CreateBook />
+            <AddBook />
         </div>
     );
 }

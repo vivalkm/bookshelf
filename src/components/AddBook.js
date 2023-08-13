@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import useBooksContext from "../hooks/useBooksContext";
+import ReadingSummary from "./ReadingSummary";
 
-export default function CreateBook() {
+/**
+ * A component to add a book with details
+ */
+function AddBook() {
     const [bookName, setBookName] = useState("");
     const [bookImgUrl, setBookImgUrl] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [notes, setNotes] = useState("");
-    const { createBook } = useBooksContext();
+    const { addBook } = useBooksContext();
 
     const [isOnCreate, setIsOnCreate] = useState(false);
 
@@ -29,16 +33,16 @@ export default function CreateBook() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        createBook(bookName, bookImgUrl, startDate, endDate, notes);
+        addBook(bookName, bookImgUrl, startDate, endDate, notes);
         setBookName("");
         setBookImgUrl("");
         setStartDate("");
         setEndDate("");
         setNotes("");
-        toggleCreateBook();
+        toggleAddBook();
     };
 
-    const toggleCreateBook = () => {
+    const toggleAddBook = () => {
         setIsOnCreate(!isOnCreate);
     };
 
@@ -46,7 +50,7 @@ export default function CreateBook() {
         return (
             <div className="book-create">
                 <form onSubmit={handleSubmit}>
-                    <h3>Create Book</h3>
+                    <h3>Add a New Book</h3>
                     <input
                         className="input"
                         onChange={handleTitleChange}
@@ -86,7 +90,7 @@ export default function CreateBook() {
                     ></textarea>
                     <div className="buttonGroup">
                         <button className="button">Submit</button>
-                        <button className="button" type="button" onClick={toggleCreateBook}>
+                        <button className="button" type="button" onClick={toggleAddBook}>
                             Cancel
                         </button>
                     </div>
@@ -96,10 +100,14 @@ export default function CreateBook() {
     } else {
         return (
             <div className="book-create">
-                <button className="button" onClick={toggleCreateBook}>
-                    Create Book
-                </button>
+                <div className="start">
+                    <button className="button" onClick={toggleAddBook}>
+                        Add Book
+                    </button>
+                    <ReadingSummary />
+                </div>
             </div>
         );
     }
 }
+export default AddBook;

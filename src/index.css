@@ -10608,7 +10608,8 @@ a.has-text-danger-dark:hover {
     padding: 20px;
 }
 .book-create {
-    background-color: #00d1b2;
+    background-color: #606c38;
+    border-radius: 5px;
     bottom: 0;
     right: 0;
     padding: 20px 40px 30px;
@@ -10640,6 +10641,28 @@ a.has-text-danger-dark:hover {
 .book-create button {
     margin-top: 5px;
     margin-right: 5px;
+    background-color: #283618;
+    color: #fff
+}
+.book-create button:hover {
+    background-color: #bc6c25;
+    color: #fff
+}
+.book-create .start {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-between;  
+}
+.book-summary {
+    height: 100%;
+    right:0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    background-color:#606c38;
+    border-radius: 5px;
+    color: #fff;
 }
 .book-list {
     display: flex;

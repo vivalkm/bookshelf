@@ -1,13 +1,20 @@
-import React from 'react'
+import React from "react";
 
-export default function BookDetail({book}) {
-  return (
-      <div className='book-detail'>
-          <div className="date">
-              <div>Start reading date: {book.startDate}</div>
-              <div>Completion date: {book.endDate}</div>
-              <div>Notes: {book.notes}</div>
-          </div>
-      </div>
-  );
+/**
+ * A component to show details of a given book
+ */
+function BookDetail({ book }) {
+    return (
+        <div className="content">
+            <div>
+                <ul>
+                    <li>Start reading date: {book.startDate}</li>
+                    <li>Completion date: {book.endDate}</li>
+                    <li>Notes: {book.notes}</li>
+                </ul>
+            </div>
+        </div>
+    );
 }
+
+export default BookDetail;
