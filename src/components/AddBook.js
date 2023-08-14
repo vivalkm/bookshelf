@@ -6,39 +6,38 @@ import ReadingSummary from "./ReadingSummary";
  * A component to add a book with details
  */
 function AddBook() {
-    const [bookName, setBookName] = useState("");
-    const [bookImgUrl, setBookImgUrl] = useState("");
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
-    const [notes, setNotes] = useState("");
+    const [formData, setFormData] = useState({
+        bookName: "",
+        bookImgUrl: "",
+        startDate: "",
+        endDate: "",
+        notes: "",
+    });
+
+    const { bookName, bookImgUrl, startDate, endDate, notes } = formData;
+
     const { addBook } = useBooksContext();
 
     const [isOnCreate, setIsOnCreate] = useState(false);
 
-    const handleTitleChange = (event) => {
-        setBookName(event.target.value);
-    };
-    const handleImgUrlChange = (event) => {
-        setBookImgUrl(event.target.value);
-    };
-    const handleStartDateChange = (event) => {
-        setStartDate(event.target.value);
-    };
-    const handleEndDateChange = (event) => {
-        setEndDate(event.target.value);
-    };
-    const handleNotesChange = (event) => {
-        setNotes(event.target.value);
+    const handleFormChange = (event) => {
+        setFormData({
+            ...formData,
+            [event.target.id]: event.target.value,
+        });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         addBook(bookName, bookImgUrl, startDate, endDate, notes);
-        setBookName("");
-        setBookImgUrl("");
-        setStartDate("");
-        setEndDate("");
-        setNotes("");
+        setFormData({
+            bookName: "",
+            bookImgUrl: "",
+            startDate: "",
+            endDate: "",
+            notes: "",
+        });
+
         toggleAddBook();
     };
 
@@ -53,14 +52,16 @@ function AddBook() {
                     <h3>Add a New Book</h3>
                     <input
                         className="input"
-                        onChange={handleTitleChange}
+                        onChange={handleFormChange}
                         value={bookName}
+                        id="bookName"
                         placeholder="Book Name"
                     />
                     <input
                         className="input"
-                        onChange={handleImgUrlChange}
+                        onChange={handleFormChange}
                         value={bookImgUrl}
+                        id="bookImgUrl"
                         placeholder="Book Image Url"
                     />
                     <label htmlFor="startDate">Start reading date:</label>
@@ -68,7 +69,7 @@ function AddBook() {
                         className="input"
                         type="date"
                         id="startDate"
-                        onChange={handleStartDateChange}
+                        onChange={handleFormChange}
                         value={startDate}
                     />
 
@@ -77,15 +78,16 @@ function AddBook() {
                         className="input"
                         type="date"
                         id="endDate"
-                        onChange={handleEndDateChange}
+                        onChange={handleFormChange}
                         value={endDate}
                     />
 
                     <textarea
                         className="textarea"
                         rows={4}
-                        onChange={handleNotesChange}
+                        onChange={handleFormChange}
                         value={notes}
+                        id="notes"
                         placeholder="Notes"
                     ></textarea>
                     <div className="buttonGroup">
