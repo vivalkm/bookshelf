@@ -7,7 +7,7 @@ A fun project to help me track the books I plan to or have read, showing a dynam
 - Remove book card by clicking the Delete button
 - Add a book by clicking "Add Book"
 
-<img width="1034" alt="image" src="https://github.com/vivalkm/bookshelf/assets/83200994/27d5b8e1-1750-49fe-b53d-0d4a1f2db5b8">
+<img width="1034" alt="image" src="https://github.com/vivalkm/bookshelf/blob/master/walkthrough.gif">
 
 
 
