@@ -1,3 +1,16 @@
+# Bookshelf
+A fun project to help me track the books I plan to or have read, showing a dynamic summary of reading statistics.
+
+## Features:
+- Click book card to show detail
+- Edit book image, comments, start and end reading date
+- Remove book card by clicking the Delete button
+- Add a book by clicking "Add Book"
+
+<img width="1034" alt="image" src="https://github.com/vivalkm/bookshelf/assets/83200994/a7903ac0-9c9a-4206-ad88-3f64894e2c2a">
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
